@@ -2,6 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\frontController;
+use App\Http\Controllers\Dashboardd\{HomeController,AuthController};
+
+// Admin Panel
+Route::get('/admin/login',[AuthController::class,'login'])->name('login')->middleware('guest');
+Route::post('/admin/login',[AuthController::class,'loginAction'])->name('loginAction')->middleware('guest');
+
+Route::group(['middleware' => 'auth','prefix' => 'admin',  'as' => 'Admin.'], function () {
+    // home
+    Route::get('/home',[HomeController::class,'index'])->name('adminHome');
+
+    // logout
+    Route::get('logout',[AuthController::class,'logout'])->name('logout');
+});
 
 /////////////////////////////////// front routes ////////////////////////////////////
 
