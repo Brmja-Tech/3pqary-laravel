@@ -1,20 +1,59 @@
+
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Front\frontController;
 use App\Http\Controllers\Dashboardd\{HomeController,AuthController};
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Blog\BlogController;
+use App\Http\Controllers\ClaintRateController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\Courses\CourseController;
+use App\Http\Controllers\Front\frontController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\Grade\GradeController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\subject\SubjectController;
+use App\Http\Controllers\TeacherController;
+use Illuminate\Support\Facades\Route;
 
-// Admin Panel
-Route::get('/admin/login',[AuthController::class,'login'])->name('login')->middleware('guest');
-Route::post('/admin/login',[AuthController::class,'loginAction'])->name('loginAction')->middleware('guest');
 
-Route::group(['middleware' => 'auth','prefix' => 'admin',  'as' => 'Admin.'], function () {
-    // home
-    Route::get('/home',[HomeController::class,'index'])->name('adminHome');
 
-    // logout
-    Route::get('logout',[AuthController::class,'logout'])->name('logout');
-});
+require __DIR__ . '/auth.php';
+/////////////////////////////////// dashboard routes ////////////////////////////////////
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+Route::post('/register', [RegisteredUserController::class, 'store']);
+
+/////////////////////////////////// dashboard routes ////////////////////////////////////
+
+
+    Route::resource('contact-us', ContactUsController::class)->names('contact-us');
+    Route::resource('settings', SettingController::class)->names('settings');
+    Route::resource('gallery', GalleryController::class)->names('gallery');
+    Route::resource('grade', GradeController::class)->names('grade');
+    Route::resource('claint_rates', ClaintRateController::class)->names('claint_rates');
+    Route::resource('blog', BlogController::class)->names('blog');
+    Route::resource('subject', SubjectController::class)->names('subject');
+    Route::resource('courses', CourseController::class)->names('courses');
+    Route::resource('teachers', TeacherController::class)->names('teachers');
+    Route::resource('admins', AdminUserController::class)->names('admins');
+
+    Route::get('/admin', function () {
+        return view('dashboard.pages.index');
+    })->name('admin');
 
 /////////////////////////////////// front routes ////////////////////////////////////
 
