@@ -1,6 +1,6 @@
 @extends('dashboard.layout.layout')
 
-@section('title', isset($courses) ? 'Edit courses' : 'Create courses')
+@section('title', isset($course) ? 'Edit courses' : 'Create courses')
 
 @section('content')
 
@@ -15,7 +15,7 @@
           <ol class="breadcrumb mb-0 p-0">
             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a></li>
             <li class="breadcrumb-item active" aria-current="page">
-              {{ isset($courses) ? 'تعديل المادة' : 'انشاء مادة جديدة' }}
+              {{ isset($course) ? 'تعديل المادة' : 'انشاء مادة جديدة' }}
             </li>
           </ol>
         </nav>
@@ -29,11 +29,11 @@
     <!--end breadcrumb-->
 
     <form
-      action="{{ isset($courses) ? route('courses.update', $courses->id) : route('courses.store') }}"
+      action="{{ isset($course) ? route('courses.update', $course->id) : route('courses.store') }}"
       method="POST"
       enctype="multipart/form-data">
       @csrf
-      @if(isset($courses))
+      @if(isset($course))
       @method('PUT')
       @endif
 
@@ -46,8 +46,16 @@
                 <input
                   type="file"
                   name="image"
-                  class="form-control"
-                  value="{{ isset($courses) ? $courses->title : old('title') }}">
+                  class="form-control">
+                  @if(isset($course) && $course->image)
+                  <div class="mb-3">
+                    <img
+                      src="{{ asset('storage/' . $course->image) }}"
+                      alt="معاينة الصورة"
+                      class="img-fluid rounded"
+                      style="max-height: 200px;">
+                  </div>
+                  @endif
               </div>
               <div class="mb-4">
                 <h5 class="mb-3">عنوان المادة</h5>
@@ -56,7 +64,7 @@
                   name="title"
                   class="form-control"
                   placeholder="ادخل عنوان المادة...."
-                  value="{{ isset($courses) ? $courses->title : old('title') }}">
+                  value="{{ isset($course) ? $course->title : old('title') }}">
               </div>
               <div class="mb-4">
                 <h5 class="mb-3">الوصف</h5>
@@ -65,7 +73,7 @@
                   cols="4"
                   rows="3"
                   name="note"
-                  placeholder="قم بإدخال نبذة مختصرة..">{{ isset($courses) ? $courses->note : old('note') }}</textarea>
+                  placeholder="قم بإدخال نبذة مختصرة..">{{ isset($course) ? $course->note : old('note') }}</textarea>
               </div>
 
               <!-- Multiple Video Inputs -->
@@ -87,7 +95,7 @@
         </div>
         <div class="col-4">
           <button type="submit" class="btn btn-outline-primary col-4 flex-fill">
-            <i class="bi bi-send me-2"></i>{{ isset($courses) ? 'تحديث' : 'حفظ' }}
+            <i class="bi bi-send me-2"></i>{{ isset($course) ? 'تحديث' : 'حفظ' }}
           </button>
         </div>
       </div>

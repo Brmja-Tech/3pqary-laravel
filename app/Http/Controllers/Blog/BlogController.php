@@ -14,8 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $Blogs = Blog::query()->get();
-        return view('dashboard.pages.blogs.index', compact('Blogs'));
+        $blogs = Blog::query()->get();
+        return view('dashboard.pages.blogs.index', compact('blogs'));
     }
 
     /**
@@ -23,8 +23,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $Blog = Blog::query()->get();
-        return view('dashboard.pages.blogs.create', compact('Blog'));
+        // $blog = Blog::query()->get();
+        return view('dashboard.pages.blogs.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -60,9 +60,9 @@ class BlogController extends Controller
 
     public function edit($id)
     {
-        $Blog = Blog::findOrFail($id);
-        $Blogs = Blog::all();
-        return view('dashboard.pages.blogs.create', compact('Blogs', 'Blog'));
+        $blog = Blog::findOrFail($id);
+        $blogs = Blog::all();
+        return view('dashboard.pages.blogs.create', compact('blog','blogs'));
     }
 
     public function update(Request $request, $id)
@@ -91,8 +91,8 @@ class BlogController extends Controller
 
     public function destroy($id)
     {
-        $Blog = Blog::findOrFail($id);
-        $Blog->delete();
+        $blog = Blog::findOrFail($id);
+        $blog->delete();
 
         return redirect()->back()->with('success', 'Blog deleted successfully!');
     }

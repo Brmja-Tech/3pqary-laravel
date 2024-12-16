@@ -42,6 +42,13 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
+              <div class="mb-4 col-12">
+                  <h5 class="mb-3">الصورة </h5>
+                  <input
+                    type="file"
+                    name="image"
+                    class="form-control">
+                </div>
                 <!-- Second row -->
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">اسم المعلم</h5>

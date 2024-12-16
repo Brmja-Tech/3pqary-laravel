@@ -62,8 +62,8 @@
                     {{ $loop->iteration }}
                   </td>
                   <td>
-                    @if($item->image)
-                    <img src="{{ Storage::url($item->image) }}" alt="Image" class="img-fluid" style="max-width: 100px;">
+                    @if($item->file)
+                    <img src="{{ asset('storage/'.$item->file) }}" alt="Image" class="img-fluid" style="max-width: 100px;">
                     @else
                     <span>No Image</span>
                     @endif
