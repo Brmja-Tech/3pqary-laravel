@@ -48,8 +48,7 @@ class ClaintRateController extends Controller
     public function edit($id)
     {
         $ClaintRates = ClaintRates::findOrFail($id);
-        $claint_rates = ClaintRates::all();
-        return view('dashboard.pages.claint_rates.create', compact('ClaintRates','claint_rates'));
+        return view('dashboard.pages.claint_rates.create', compact('ClaintRates'));
     }
 
     public function update(ClaintRateRequest $request, ClaintRates $ClaintRates)

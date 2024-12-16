@@ -17,10 +17,8 @@ use App\Http\Controllers\subject\SubjectController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
-
-
 require __DIR__ . '/auth.php';
-/////////////////////////////////// dashboard routes ////////////////////////////////////
+/////////////////////////////////// auth routes ////////////////////////////////////
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -39,7 +37,7 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 
 /////////////////////////////////// dashboard routes ////////////////////////////////////
 
-
+// Route::middleware(['auth'])->group(function () {
     Route::resource('contact-us', ContactUsController::class)->names('contact-us');
     Route::resource('settings', SettingController::class)->names('settings');
     Route::resource('gallery', GalleryController::class)->names('gallery');
@@ -50,10 +48,13 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
     Route::resource('courses', CourseController::class)->names('courses');
     Route::resource('teachers', TeacherController::class)->names('teachers');
     Route::resource('admins', AdminUserController::class)->names('admins');
-
     Route::get('/admin', function () {
         return view('dashboard.pages.index');
     })->name('admin');
+    Route::get('/dashboard', function () {
+        return view('dashboard.pages.index');
+    })->name('dashboard');
+// });
 
 /////////////////////////////////// front routes ////////////////////////////////////
 

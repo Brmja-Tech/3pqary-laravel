@@ -30,9 +30,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
   <style>
     * {
-        font-family: "Cairo", sans-serif !important;
+      font-family: "Cairo", sans-serif !important;
     }
-</style>
+  </style>
 </head>
 
 <body>
@@ -45,9 +45,7 @@
       </div>
       <div class="search-bar flex-grow-1">
         <div class="position-relative">
-          <input class="form-control rounded-5 px-5 search-control d-lg-block d-none" type="text" placeholder="Search">
-          <span class="material-icons-outlined position-absolute d-lg-block d-none ms-3 translate-middle-y start-0 top-50"></span>
-          <span class="material-icons-outlined position-absolute me-3 translate-middle-y end-0 top-50 search-close">close</span>
+
           <div class="search-popup p-3">
             <div class="card rounded-4 overflow-hidden">
               <div class="card-header d-lg-none">
@@ -134,8 +132,6 @@
         </div>
       </div>
       <ul class="navbar-nav gap-1 nav-right-links align-items-center">
-
-
         <li class="nav-item dropdown">
           <!-- <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" data-bs-auto-close="outside"
             data-bs-toggle="dropdown" href="javascript:;">
@@ -299,16 +295,19 @@
   </header>
   <!--end top header-->
 
-
   <!--start sidebar-->
   <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
       <div class="logo-icon">
-        <img src="{{ asset('dashboard/assets/images/logo-icon.png') }}" class="logo-img" alt="">
+        <img src="{{ asset('assets/img/logo/PNG/AlAbkariAlSaghier_Logo_3.png')}}" style="width: 220px;" class="logo-img mt-3" alt="">
+
+        <!-- commited for light mode  -->
+        <!-- <img src="{{ asset('assets/img/school/logo-light.png')}}" style="width: 220px;" class="logo-img mt-3" alt="">  -->
+         
       </div>
-      <div class="logo-name flex-grow-1">
+      <!-- <div class="logo-name flex-grow-1">
         <h5 class="mb-0"> العبقري الصغير </h5>
-      </div>
+      </div> -->
       <div class="sidebar-close">
         <span class="material-icons-outlined"> close </span>
       </div>
@@ -317,16 +316,9 @@
       <!--navigation-->
       <ul class="metismenu" id="sidenav">
         <li>
-          <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class="material-icons-outlined"></i>
-            </div>
-            <div class="menu-title">لوحة التحكم </div>
-          </a>
-          <ul>
-            <li>
-              <a href="{{ route('admin')}}"><i class="material-icons-outlined"></i>لوحة التحكم </a>
-            </li>
-          </ul>
+          <div class="parent-icon"><i class="material-icons-outlined"></i>
+          </div>
+          <a href="{{ route('admin')}}"><i class="material-icons-outlined"></i>لوحة التحكم </a>
         </li>
         <li>
           <a href="javascript:;" class="has-arrow">
@@ -376,7 +368,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <!-- <li>
           <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="material-icons-outlined"></i>
             </div>
@@ -387,7 +379,7 @@
               <a href="{{ route('gallery.index')}}"><i class="material-icons-outlined"></i>جميع الفيديوهات </a>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li>
           <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="material-icons-outlined"></i>
@@ -424,7 +416,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <!-- <li>
           <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="material-icons-outlined"></i>
             </div>
@@ -435,7 +427,7 @@
               <a href="{{ route('admins.index')}}"><i class="material-icons-outlined"></i>جميع مديرين </a>
             </li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <!--end navigation-->
     </div>
@@ -452,7 +444,7 @@
 
   <!--start footer-->
   <footer class="page-footer">
-    <p class="mb-0" style="bottom: 0;">Copyright © 2024. All right reserved for Brmja Tech.</p>
+    <p class="mb-0" style="bottom: 0 !important;">Copyright © 2024. All right reserved for Brmja Tech.</p>
   </footer>
   <!--end footer-->
 
@@ -484,7 +476,7 @@
             </label>
           </div>
           <div class="col-12 col-xl-6">
-            <input type="radio" class="btn-check" name="theme-options" id="LightTheme" >
+            <input type="radio" class="btn-check" name="theme-options" id="LightTheme">
             <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="LightTheme">
               <span class="material-icons-outlined">light_mode</span>
               <span>Light</span>

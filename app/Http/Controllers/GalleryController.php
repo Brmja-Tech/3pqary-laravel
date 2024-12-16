@@ -84,7 +84,8 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        return view('dashboard.pages.gallary.index', compact('gallery'));
+        $galleries = Gallery::all();
+        return view('dashboard.pages.gallary.create', compact('gallery','galleries'));
     }
 
 

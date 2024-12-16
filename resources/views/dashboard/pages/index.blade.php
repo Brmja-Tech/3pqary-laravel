@@ -4,12 +4,25 @@
 
 @section('content')
 <!--start main wrapper-->
+
+<style>
+    .page-breadcrumb {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .breadcrumb-title {
+        text-align: center;
+        font-size: 1.5rem;
+        /* Adjust as needed */
+    }
+</style>
+
 <main class="main-wrapper">
     <div class="main-content">
         <!--breadcrumb-->
-        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">لوحة تحكم منصة العبقري الصغير</div>
-        </div>
+        <div class="breadcrumb-title pe-3 text-center"> لوحة تحكم منصة العبقري الصغير</div>
     </div>
 </main>
 

@@ -79,8 +79,19 @@
                     {{ $item->created_at->format('Y-m-d')}}
                   </td>
                   <td>
-                    <a class="btn btn-primary" href="{{ route('grade.edit', $item->id)}}">edit</a>
-                    <button class="btn btn-danger" href="#">delete</button>
+                    <div class="d-flex gap-2">
+                      <!-- Edit Button -->
+                      <a class="btn btn-primary" href="{{ route('grade.edit', $item->id) }}"> تعديل </a>
+
+                      <!-- Delete Form -->
+                      <form action="{{ route('grade.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this grade?');" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">
+                          حذف
+                        </button>
+                      </form>
+                    </div>
                   </td>
                 </tr>
                 @endforeach
