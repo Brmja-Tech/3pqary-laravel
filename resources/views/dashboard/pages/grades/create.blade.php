@@ -23,13 +23,13 @@
     </div>
     <div class="col-auto">
       <div class="d-flex align-items-center gap-2 justify-content-lg-end">
-        <a href="{{ route('grade.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
+        <a href="{{ route('admin.grade.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
       </div>
     </div>
     <!--end breadcrumb-->
     
     <form 
-      action="{{ isset($grade) ? route('grade.update', $grade->id) : route('grade.store') }}" 
+      action="{{ isset($grade) ? route('admin.grade.update', $grade->id) : route('admin.grade.store') }}" 
       method="POST" 
       enctype="multipart/form-data"
     >

@@ -36,7 +36,7 @@
       </div>
       <div class="col-auto">
         <div class="d-flex align-items-center gap-2 justify-content-lg-end">
-          <a href="{{ route('grade.create')}}" class="btn btn-primary px-4"><i class="bi bi-plus-lg me-2"></i>أضف صف جديد</a>
+          <a href="{{ route('admin.grade.create')}}" class="btn btn-primary px-4"><i class="bi bi-plus-lg me-2"></i>أضف صف جديد</a>
         </div>
       </div>
     </div><!--end row-->
@@ -81,10 +81,10 @@
                   <td>
                     <div class="d-flex gap-2">
                       <!-- Edit Button -->
-                      <a class="btn btn-primary" href="{{ route('grade.edit', $item->id) }}"> تعديل </a>
+                      <a class="btn btn-primary" href="{{ route('admin.grade.edit', $item->id) }}"> تعديل </a>
 
                       <!-- Delete Form -->
-                      <form action="{{ route('grade.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this grade?');" style="display: inline;">
+                      <form action="{{ route('admin.grade.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this grade?');" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">

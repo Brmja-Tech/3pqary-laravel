@@ -16,7 +16,9 @@ class AdminUserController extends Controller
 
     public function create()
     {
-        return view('dashboard.pages.admins.create');
+        $roles = Role::query()->where('guard_name', 'admin')->get();
+
+        return view('dashboard.pages.admins.create', compact('roles'));
     }
 
     public function store(Request $request)

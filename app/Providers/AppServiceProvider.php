@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
+    
     /**
      * Register any application services.
      */
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
             $settings = Setting::query()->first()->get();
             View::share('settings', $settings);
         }
+        
     }
 }

@@ -52,7 +52,8 @@
                 <div class="position-relative">
                   <input class="form-control rounded-5 px-5 mobile-search-control" type="text" placeholder="Search">
                   <span class="material-icons-outlined position-absolute ms-3 translate-middle-y start-0 top-50"></span>
-                  <span class="material-icons-outlined position-absolute me-3 translate-middle-y end-0 top-50 mobile-search-close">close</span>
+                  <span
+                    class="material-icons-outlined position-absolute me-3 translate-middle-y end-0 top-50 mobile-search-close">close</span>
                 </div>
               </div>
               <div class="card-body search-content">
@@ -97,7 +98,8 @@
                 <div class="search-list d-flex flex-column gap-2">
                   <div class="search-list-item d-flex align-items-center gap-3">
                     <div class="memmber-img">
-                      <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" width="32" height="32" class="rounded-circle" alt="">
+                      <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" width="32" height="32"
+                        class="rounded-circle" alt="">
                     </div>
                     <div class="">
                       <h5 class="mb-0 search-list-title ">Andrew Stark</h5>
@@ -106,7 +108,8 @@
 
                   <div class="search-list-item d-flex align-items-center gap-3">
                     <div class="memmber-img">
-                      <img src="{{ asset('dashboard/assets/images/avatars/02.png') }}" width="32" height="32" class="rounded-circle" alt="">
+                      <img src="{{ asset('dashboard/assets/images/avatars/02.png') }}" width="32" height="32"
+                        class="rounded-circle" alt="">
                     </div>
                     <div class="">
                       <h5 class="mb-0 search-list-title ">Snetro Jhonia</h5>
@@ -115,7 +118,8 @@
 
                   <div class="search-list-item d-flex align-items-center gap-3">
                     <div class="memmber-img">
-                      <img src="{{ asset('dashboard/assets/images/avatars/03.png') }}" width="32" height="32" class="rounded-circle" alt="">
+                      <img src="{{ asset('dashboard/assets/images/avatars/03.png') }}" width="32" height="32"
+                        class="rounded-circle" alt="">
                     </div>
                     <div class="">
                       <h5 class="mb-0 search-list-title">Michle Clark</h5>
@@ -168,7 +172,8 @@
                 <a class="dropdown-item border-bottom py-2" href="javascript:;">
                   <div class="d-flex align-items-center gap-3">
                     <div class="">
-                      <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle" width="45" height="45" alt="">
+                      <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle" width="45"
+                        height="45" alt="">
                     </div>
                     <div class="">
                       <h5 class="notify-title">Congratulations Jhon</h5>
@@ -202,7 +207,8 @@
                 <a class="dropdown-item border-bottom py-2" href="javascript:;">
                   <div class="d-flex align-items-center gap-3">
                     <div class="">
-                      <img src="{{ asset('dashboard/assets/images/apps/13.png') }}" class="rounded-circle" width="45" height="45" alt="">
+                      <img src="{{ asset('dashboard/assets/images/apps/13.png') }}" class="rounded-circle" width="45"
+                        height="45" alt="">
                     </div>
                     <div class="">
                       <h5 class="notify-title">Payment Recived</h5>
@@ -219,7 +225,8 @@
                 <a class="dropdown-item border-bottom py-2" href="javascript:;">
                   <div class="d-flex align-items-center gap-3">
                     <div class="">
-                      <img src="{{ asset('dashboard/assets/images/apps/14.png') }}" class="rounded-circle" width="45" height="45" alt="">
+                      <img src="{{ asset('dashboard/assets/images/apps/14.png') }}" class="rounded-circle" width="45"
+                        height="45" alt="">
                     </div>
                     <div class="">
                       <h5 class="notify-title">New Order Recived</h5>
@@ -236,7 +243,8 @@
                 <a class="dropdown-item border-bottom py-2" href="javascript:;">
                   <div class="d-flex align-items-center gap-3">
                     <div class="">
-                      <img src="{{ asset('dashboard/assets/images/avatars/06.png') }}" class="rounded-circle" width="45" height="45" alt="">
+                      <img src="{{ asset('dashboard/assets/images/avatars/06.png') }}" class="rounded-circle" width="45"
+                        height="45" alt="">
                     </div>
                     <div class="">
                       <h5 class="notify-title">Congratulations Jhon</h5>
@@ -272,21 +280,32 @@
 
         <li class="nav-item dropdown">
           <a href="javascrpt:;" class="dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
-            <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle p-1 border" width="45" height="45" alt="">
+            <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle p-1 border"
+              width="45" height="45" alt="">
           </a>
           <div class="dropdown-menu dropdown-user dropdown-menu-end shadow">
             <a class="dropdown-item  gap-2 py-2" href="javascript:;">
               <div class="text-center">
-                <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle p-1 shadow mb-3" width="90" height="90"
-                  alt="">
+                <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle p-1 shadow mb-3"
+                  width="90" height="90" alt="">
                 <h5 class="user-name mb-0 fw-bold">مرحباً , Admin</h5>
               </div>
             </a>
             <hr class="dropdown-divider">
             <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
                 class="material-icons-outlined"></i> الملف الشخصي </a>
-            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
-                class="material-icons-outlined"></i> تسجيل خروج </a>
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <a href="route('logout')" onclick="event.preventDefault();
+                                this.closest('form').submit();"
+                class="dropdown-item d-flex align-items-center gap-2 py-2">
+                <i class="material-icons-outlined"></i>
+                <span>تسجيل خروج </span>
+              </a>
+            </form>
+            <!-- <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
+                class="material-icons-outlined"></i> تسجيل خروج </a> -->
+
           </div>
         </li>
       </ul>
@@ -299,11 +318,12 @@
   <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
       <div class="logo-icon">
-        <img src="{{ asset('assets/img/logo/PNG/AlAbkariAlSaghier_Logo_3.png')}}" style="width: 220px;" class="logo-img mt-3" alt="">
+        <img src="{{ asset('assets/img/logo/PNG/AlAbkariAlSaghier_Logo_3.png')}}" style="width: 220px;"
+          class="logo-img mt-3" alt="">
 
         <!-- commited for light mode  -->
         <!-- <img src="{{ asset('assets/img/school/logo-light.png')}}" style="width: 220px;" class="logo-img mt-3" alt="">  -->
-         
+
       </div>
       <!-- <div class="logo-name flex-grow-1">
         <h5 class="mb-0"> العبقري الصغير </h5>
@@ -318,7 +338,7 @@
         <li>
           <div class="parent-icon"><i class="material-icons-outlined"></i>
           </div>
-          <a href="{{ route('admin')}}"><i class="material-icons-outlined"></i>لوحة التحكم </a>
+          <a href="{{ route('admin.admin')}}"><i class="material-icons-outlined"></i>لوحة التحكم </a>
         </li>
         <li>
           <a href="javascript:;" class="has-arrow">
@@ -328,7 +348,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('grade.index')}}"><i class="material-icons-outlined"></i>جميع الصفوف </a>
+              <a href="{{ route('admin.grade.index')}}"><i class="material-icons-outlined"></i>جميع الصفوف </a>
             </li>
           </ul>
         </li>
@@ -340,7 +360,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('courses.index')}}"><i class="material-icons-outlined"></i>جميع المواد الدراسية </a>
+              <a href="{{ route('admin.courses.index')}}"><i class="material-icons-outlined"></i>جميع المواد الدراسية </a>
             </li>
           </ul>
         </li>
@@ -352,7 +372,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('teachers.index')}}"><i class="material-icons-outlined"></i>جميع المعلمين </a>
+              <a href="{{ route('admin.teachers.index')}}"><i class="material-icons-outlined"></i>جميع المعلمين </a>
             </li>
           </ul>
         </li>
@@ -364,7 +384,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('gallery.index')}}"><i class="material-icons-outlined"></i>جميع الصور </a>
+              <a href="{{ route('admin.gallery.index')}}"><i class="material-icons-outlined"></i>جميع الصور </a>
             </li>
           </ul>
         </li>
@@ -376,7 +396,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('gallery.index')}}"><i class="material-icons-outlined"></i>جميع الفيديوهات </a>
+              <a href="{{ route('admin.gallery.index')}}"><i class="material-icons-outlined"></i>جميع الفيديوهات </a>
             </li>
           </ul>
         </li> -->
@@ -388,7 +408,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('blog.index')}}"><i class="material-icons-outlined"></i>جميع الاخبار </a>
+              <a href="{{ route('admin.blog.index')}}"><i class="material-icons-outlined"></i>جميع الاخبار </a>
             </li>
           </ul>
         </li>
@@ -400,7 +420,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('claint_rates.index')}}"><i class="material-icons-outlined"></i> جميع أرآء العملاء </a>
+              <a href="{{ route('admin.claint_rates.index')}}"><i class="material-icons-outlined"></i> جميع أرآء العملاء </a>
             </li>
           </ul>
         </li>
@@ -412,7 +432,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('settings.index')}}"><i class="material-icons-outlined"></i> اعدادات المنصة </a>
+              <a href="{{ route('admin.settings.index')}}"><i class="material-icons-outlined"></i> اعدادات المنصة </a>
             </li>
           </ul>
         </li>
@@ -424,7 +444,7 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('admins.index')}}"><i class="material-icons-outlined"></i>جميع مديرين </a>
+              <a href="{{ route('admin.admins.index')}}"><i class="material-icons-outlined"></i>جميع مديرين </a>
             </li>
           </ul>
         </li> -->
@@ -449,7 +469,8 @@
   <!--end footer-->
 
   <!--start switcher-->
-  <button class="btn btn-grd btn-grd-primary position-fixed bottom-0 end-0 m-3 d-flex align-items-center gap-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop">
+  <button class="btn btn-grd btn-grd-primary position-fixed bottom-0 end-0 m-3 d-flex align-items-center gap-2"
+    type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop">
     <i class="material-icons-outlined">tune</i>Customize
   </button>
 
@@ -470,35 +491,45 @@
         <div class="row g-3">
           <div class="col-12 col-xl-6">
             <input type="radio" class="btn-check" name="theme-options" id="BlueTheme" checked>
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="BlueTheme">
+            <label
+              class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4"
+              for="BlueTheme">
               <span class="material-icons-outlined">contactless</span>
               <span>Blue</span>
             </label>
           </div>
           <div class="col-12 col-xl-6">
             <input type="radio" class="btn-check" name="theme-options" id="LightTheme">
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="LightTheme">
+            <label
+              class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4"
+              for="LightTheme">
               <span class="material-icons-outlined">light_mode</span>
               <span>Light</span>
             </label>
           </div>
           <div class="col-12 col-xl-6">
             <input type="radio" class="btn-check" name="theme-options" id="DarkTheme">
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="DarkTheme">
+            <label
+              class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4"
+              for="DarkTheme">
               <span class="material-icons-outlined">dark_mode</span>
               <span>Dark</span>
             </label>
           </div>
           <div class="col-12 col-xl-6">
             <input type="radio" class="btn-check" name="theme-options" id="SemiDarkTheme">
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="SemiDarkTheme">
+            <label
+              class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4"
+              for="SemiDarkTheme">
               <span class="material-icons-outlined">contrast</span>
               <span>Semi Dark</span>
             </label>
           </div>
           <div class="col-12 col-xl-6">
             <input type="radio" class="btn-check" name="theme-options" id="BoderedTheme">
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="BoderedTheme">
+            <label
+              class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4"
+              for="BoderedTheme">
               <span class="material-icons-outlined">border_style</span>
               <span>Bordered</span>
             </label>
