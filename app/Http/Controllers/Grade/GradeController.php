@@ -21,6 +21,7 @@ class GradeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
     public function create()
     {
         $grades = Grade::query()->get();
@@ -29,8 +30,10 @@ class GradeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    
     public function store(GradeRequest $request)
     {
+        dd($request);
         Grade::create($request->validated());
         return redirect()->route('grade.index')->with('success', 'Grade created successfully!');
     }

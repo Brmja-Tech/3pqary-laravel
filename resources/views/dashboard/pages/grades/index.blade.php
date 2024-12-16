@@ -48,41 +48,42 @@
             <table class="table align-middle">
               <thead class="table-light">
                 <tr>
-                  <th>
-                    <input class="form-check-input" type="checkbox">
-                  </th>
                   <th>ID</th>
                   <th>عنوان الصف الدراسي</th>
-
+                  <th>الملاحظات</th>
+                  <th>تاريخ الانشاء</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach ($grades as $item)
                 <tr>
                   <td>
-                    <input class="form-check-input" type="checkbox">
+                    {{ $loop->iteration }}
                   </td>
                   <td>
                     <div class="d-flex align-items-center gap-3">
-                      <div class="product-box">
-                        <img src="assets/images/orders/01.png" width="70" class="rounded-3" alt="">
-                      </div>
                       <div class="product-info">
-                        <a href="javascript:;" class="product-title">Women Pink Floral Printed</a>
-                        <p class="mb-0 product-category">Category : Fashion</p>
+                        <p class="product-title">{{ $item->title }}</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    Nov 12, 10:45 PM
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="product-info">
+                        <pclass="product-title">{{ $item->note }}</p>
+                      </div>
+                    </div>
                   </td>
                   <td>
-                    <button class="btn btn-primary" href="#">edit</button>
+                    {{ $item->created_at->format('Y-m-d')}}
+                  </td>
+                  <td>
+                    <a class="btn btn-primary" href="{{ route('grade.edit', $item->id)}}">edit</a>
                     <button class="btn btn-danger" href="#">delete</button>
                   </td>
                 </tr>
-
-
+                @endforeach
               </tbody>
             </table>
           </div>

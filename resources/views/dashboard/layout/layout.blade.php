@@ -10,7 +10,6 @@
   <!-- loader-->
   <link href="{{ asset('dashboard/assets/css/pace.min.css') }}" rel="stylesheet">
   <script src="{{ asset('dashboard/assets/js/pace.min.js') }}"></script>
-
   <!--plugins-->
   <link href="{{ asset('dashboard/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ asset('dashboard/assets/plugins/metismenu/metisMenu.min.css') }}">
