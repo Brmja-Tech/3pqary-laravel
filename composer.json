@@ -30,7 +30,7 @@
         },
         "files": [
             "app/Helpers/Admin.php"
-        ],
+        ]
     },
 
     "autoload-dev": {

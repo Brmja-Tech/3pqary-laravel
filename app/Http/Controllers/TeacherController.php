@@ -59,7 +59,7 @@ class TeacherController extends Controller
             $data['image'] = $request->file('image')->store('teacher', 'public');
         }
         teacher::create($data);
-        return redirect()->route('teachers.index')->with('success', 'Data stored successfully');
+        return redirect()->route('admin.teachers.index')->with('success', 'Data stored successfully');
     }
 
 
@@ -115,12 +115,12 @@ class TeacherController extends Controller
 
         $model->update($data);
 
-        return redirect()->route('teachers.index')->with('success', 'Data updated successfully');
+        return redirect()->route('admin.teachers.index')->with('success', 'Data updated successfully');
     }
 
     public function destroy(teacher $teacher)
     {
         $teacher->delete();
-        return redirect()->route('teachers.index')->with('success', 'teacher deleted successfully!');
+        return redirect()->route('admin.teachers.index')->with('success', 'teacher deleted successfully!');
     }
 }

@@ -50,10 +50,10 @@
                 <!-- Second row -->
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">اسم المعلم</h5>
-                  <input type="text" name="title" class="form-control" placeholder="ادخل اسم المعلم...."
+                  <input type="text" name="name" class="form-control" placeholder="ادخل اسم المعلم...."
                     value="{{ isset($teacher) ? $teacher->name : old('name') }}">
                 </div>
-                @error('title')
+                @error('name')
                   <span class="text-danger">{{ $message }}</span>
                 @enderror
                 <div class="mb-4 col-md-6">

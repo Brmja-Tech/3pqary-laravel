@@ -322,7 +322,7 @@
             <div class="col-md-6">
                 <div class="class-style1">
                     <div class="class-img">
-                        <a href="class-details.html">
+                        <a href="{{ route('subject-details', $item->id)}}">
                             <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('assets/img/school/draw.jpeg') }}"
                                 style="width: 360px; height: 306px;"
                                 alt="{{ $item->title ?? 'class' }}">
