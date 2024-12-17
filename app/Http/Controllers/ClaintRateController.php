@@ -34,7 +34,7 @@ class ClaintRateController extends Controller
     public function store(GradeRequest $request)
     {
         ClaintRates::create($request->validated());
-        return redirect()->route('claint_rates.index')->with('success', 'claint rate created successfully!');
+        return redirect()->route('admin.claint_rates.index')->with('success', 'claint rate created successfully!');
     }
     /**
      * Display the specified resource.
@@ -54,7 +54,7 @@ class ClaintRateController extends Controller
     public function update(ClaintRateRequest $request, ClaintRates $ClaintRates)
     {
         $ClaintRates->update($request->validated());
-        return redirect()->route('claint_rates.index')->with('success', 'Claint Rates updated successfully!');
+        return redirect()->route('admin.claint_rates.index')->with('success', 'Claint Rates updated successfully!');
     }
 
     public function destroy($id)

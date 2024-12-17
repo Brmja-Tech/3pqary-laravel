@@ -23,13 +23,13 @@
     </div>
     <div class="col-auto">
       <div class="d-flex align-items-center gap-2 justify-content-lg-end">
-        <a href="{{ route('blog.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
+        <a href="{{ route('admin.blog.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
       </div>
     </div>
     <!--end breadcrumb-->
 
     <form
-      action="{{ isset($blog) ? route('blog.update', $blog->id) : route('blog.store') }}"
+      action="{{ isset($blog) ? route('admin.blog.update', $blog->id) : route('admin.blog.store') }}"
       method="POST"
       enctype="multipart/form-data">
       @csrf

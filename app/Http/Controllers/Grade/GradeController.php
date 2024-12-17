@@ -33,9 +33,8 @@ class GradeController extends Controller
     
     public function store(GradeRequest $request)
     {
-        dd($request);
         Grade::create($request->validated());
-        return redirect()->route('grade.index')->with('success', 'Grade created successfully!');
+        return redirect()->route('admin.grade.index')->with('success', 'Grade created successfully!');
     }
     /**
      * Display the specified resource.
@@ -56,7 +55,7 @@ class GradeController extends Controller
     public function update(GradeRequest $request, Grade $grade)
     {
         $grade->update($request->validated());
-        return redirect()->route('grade.index')->with('success', 'Grade updated successfully!');
+        return redirect()->route('admin.grade.index')->with('success', 'Grade updated successfully!');
     }
 
     public function destroy($id)

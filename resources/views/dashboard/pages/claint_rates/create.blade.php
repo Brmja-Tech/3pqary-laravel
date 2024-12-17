@@ -23,13 +23,13 @@
     </div>
     <div class="col-auto">
       <div class="d-flex align-items-center gap-2 justify-content-lg-end">
-        <a href="{{ route('claint_rates.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
+        <a href="{{ route('admin.claint_rates.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
       </div>
     </div>
     <!--end breadcrumb-->
 
     <form
-      action="{{ isset($ClaintRates) ? route('claint_rates.update', $ClaintRates->id) : route('claint_rates.store') }}"
+      action="{{ isset($ClaintRates) ? route('admin.claint_rates.update', $ClaintRates->id) : route('admin.claint_rates.store') }}"
       method="POST"
       enctype="multipart/form-data">
       @csrf

@@ -38,7 +38,7 @@
                 @endif
                 <h2 class="sec-title mb-3" style="text-align: right;">للدخول</h2>
 
-                <form action="{{ route('user-login-data') }}" method="POST" class="form-style3">
+                <form action="{{ route('login') }}" method="POST" class="form-style3">
                     @csrf
 
                     <div class="row justify-content-between">

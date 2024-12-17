@@ -23,110 +23,96 @@
     </div>
     <div class="col-auto">
       <div class="d-flex align-items-center gap-2 justify-content-lg-end">
-        <a href="{{ route('teachers.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
+        <a href="{{ route('admin.teachers.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
       </div>
     </div>
     <!--end breadcrumb-->
 
-    <form
-      action="{{ isset($teacher) ? route('teachers.update', $teacher->id) : route('teachers.store') }}"
-      method="POST"
-      enctype="multipart/form-data">
+    <form action="{{ isset($teacher) ? route('admin.teachers.update', $teacher->id) : route('admin.teachers.store') }}"
+      method="POST" enctype="multipart/form-data">
       @csrf
       @if(isset($teacher))
       @method('PUT')
-      @endif
+    @endif
       <div class="row">
 
         <div class="col-12 col-lg-12">
           <div class="card">
             <div class="card-body">
               <div class="row">
-              <div class="mb-4 col-12">
+                <div class="mb-4 col-12">
                   <h5 class="mb-3">الصورة </h5>
-                  <input
-                    type="file"
-                    name="image"
-                    class="form-control">
+                  <input type="file" name="image" class="form-control">
                 </div>
+                @error('image')
+                  <span class="text-danger">{{ $message }}</span>
+                @enderror
                 <!-- Second row -->
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">اسم المعلم</h5>
-                  <input
-                    type="text"
-                    name="title"
-                    class="form-control"
-                    placeholder="ادخل اسم المعلم...."
+                  <input type="text" name="title" class="form-control" placeholder="ادخل اسم المعلم...."
                     value="{{ isset($teacher) ? $teacher->name : old('name') }}">
                 </div>
+                @error('title')
+                  <span class="text-danger">{{ $message }}</span>
+                @enderror
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">رقم الهاتف</h5>
-                  <input
-                    type="number"
-                    name="phone"
-                    class="form-control"
-                    placeholder="ادخل رقم الهاتف...."
+                  <input type="number" name="phone" class="form-control" placeholder="ادخل رقم الهاتف...."
                     value="{{ isset($teacher) ? $teacher->phone : old('phone') }}">
                 </div>
+                @error('phone')
+                  <span class="text-danger">{{ $message }}</span>
+                @enderror
               </div>
               <div class="row">
                 <!-- Second row -->
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">ملاحظة 1</h5>
-                  <textarea
-                    class="form-control"
-                    cols="4"
-                    rows="3"
-                    name="note1"
+                  <textarea class="form-control" cols="4" rows="3" name="note1"
                     placeholder="قم بإدخال نبذة مختصرة..">{{ isset($teacher) ? $teacher->note1 : old('note1') }}</textarea>
                 </div>
+                @error('note1')
+                  <span class="text-danger">{{ $message }}</span>
+                @enderror
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">ملاحظة 2</h5>
-                  <textarea
-                    class="form-control"
-                    cols="4"
-                    rows="3"
-                    name="note2"
+                  <textarea class="form-control" cols="4" rows="3" name="note2"
                     placeholder="قم بإدخال نبذة مختصرة..">{{ isset($teacher) ? $teacher->note2 : old('note2') }}</textarea>
                 </div>
+                @error('note2')
+                  <span class="text-danger">{{ $message }}</span>
+                @enderror
               </div>
               <div class="row">
                 <!-- Third row -->
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">ملاحظة 3</h5>
-                  <textarea
-                    class="form-control"
-                    cols="4"
-                    rows="3"
-                    name="note3"
+                  <textarea class="form-control" cols="4" rows="3" name="note3"
                     placeholder="قم بإدخال نبذة مختصرة..">{{ isset($teacher) ? $teacher->note3 : old('note3') }}</textarea>
                 </div>
+                @error('note3')
+                  <span class="text-danger">{{ $message }}</span>
+                @enderror
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">ملاحظة 4</h5>
-                  <textarea
-                    class="form-control"
-                    cols="4"
-                    rows="3"
-                    name="note4"
+                  <textarea class="form-control" cols="4" rows="3" name="note4"
                     placeholder="قم بإدخال نبذة مختصرة..">{{ isset($teacher) ? $teacher->note4 : old('note4') }}</textarea>
                 </div>
+                @error('note4')
+                  <span class="text-danger">{{ $message }}</span>
+                @enderror
               </div>
               <div class="row">
                 <!-- Second row -->
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3"> socialLink1</h5>
-                  <input
-                    type="text"
-                    name="socialLink1"
-                    class="form-control"
+                  <input type="text" name="socialLink1" class="form-control"
                     value="{{ isset($teacher) ? $teacher->socialLink1 : old('socialLink1') }}">
                 </div>
                 <div class="mb-4 col-md-6">
                   <h5 class="mb-3">socialLink2</h5>
-                  <input
-                    type="text"
-                    name="socialLink2"
-                    class="form-control"
+                  <input type="text" name="socialLink2" class="form-control"
                     value="{{ isset($teacher) ? $teacher->socialLink2 : old('socialLink2') }}">
                 </div>
               </div>

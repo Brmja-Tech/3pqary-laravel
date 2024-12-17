@@ -23,7 +23,7 @@
         </div>
         <!--end breadcrumb-->
         <form
-            action="{{ isset($setting) ? route('settings.update', $setting->id) : route('settings.store') }}"
+            action="{{ isset($setting) ? route('admin.settings.update', $setting->id) : route('admin.settings.store') }}"
             method="POST" dir="rtl">
             @csrf
             @if (isset($setting))
@@ -116,10 +116,10 @@
                                 <td>{{ $setting->socialLink4 }}</td>
                                 <td>
                                     <!-- Edit Button -->
-                                    <a href="{{ route('settings.edit', $setting->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{{ route('admin.settings.edit', $setting->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                     <!-- Delete Form -->
                                     <form
-                                        action="{{ route('settings.destroy', $setting->id) }}"
+                                        action="{{ route('admin.settings.destroy', $setting->id) }}"
                                         method="POST"
                                         style="display:inline-block;"
                                         onsubmit="return confirm('Are you sure you want to delete this setting?')">

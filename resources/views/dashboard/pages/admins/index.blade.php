@@ -1,6 +1,6 @@
 @extends('dashboard.layout.layout')
 
-@section('title','Blogs')
+@section('title','adminss')
 
 @section('content')
 
@@ -15,7 +15,7 @@
           <ol class="breadcrumb mb-0 p-0">
             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">جميع الاخبار</li>
+            <li class="breadcrumb-item active" aria-current="page">جميع المديرين</li>
           </ol>
         </nav>
       </div>
@@ -36,7 +36,7 @@
       </div>
       <div class="col-auto">
         <div class="d-flex align-items-center gap-2 justify-content-lg-end">
-          <a href="{{ route('admin.blog.create')}}" class="btn btn-primary px-4"><i class="bi bi-plus-lg me-2"></i>أضف خبر جديد</a>
+          <a href="{{ route('admin.admins.create')}}" class="btn btn-primary px-4"><i class="bi bi-plus-lg me-2"></i>أضف مدير جديد</a>
         </div>
       </div>
     </div><!--end row-->
@@ -49,15 +49,15 @@
               <thead class="table-light">
                 <tr>
                   <th>ID</th>
-                  <th>الصورة</th>
-                  <th>عنوان الخبر </th>
-                  <th>محتوي الخبر</th>
+                  <th>الاسم</th>
+                  <th>البريد الالكتروني</th>
+                  <th>رقم الهاتف</th>
                   <th>تاريخ الانشاء</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($blogs as $item)
+                @foreach ($admins as $item)
                 <tr>
                   <td>
                     {{ $loop->iteration }}
@@ -65,21 +65,21 @@
                   <td>
                     <div class="d-flex align-items-center gap-3">
                       <div class="product-info">
-                        <img src="{{ asset('storage/' . $item->image) }}" width="200" alt="image">
+                        <p class="product-title">{{ $item->name }}</p>
                       </div>
                     </div>
                   </td>
                   <td>
                     <div class="d-flex align-items-center gap-3">
                       <div class="product-info">
-                        <p class="product-title">{{ $item->title }}</p>
+                        <p class="product-title">{{ $item->email }}</p>
                       </div>
                     </div>
                   </td>
                   <td>
                     <div class="d-flex align-items-center gap-3">
                       <div class="product-info">
-                        <p class="product-title">{{ $item->content }}</p>
+                        <pclass="product-title">{{ $item->phone }}</p>
                       </div>
                     </div>
                   </td>
@@ -89,10 +89,10 @@
                   <td>
                     <div class="d-flex gap-2">
                       <!-- Edit Button -->
-                      <a class="btn btn-primary" href="{{ route('admin.blog.edit', $item->id) }}"> تعديل </a>
+                      <a class="btn btn-primary" href="{{ route('admin.admins.edit', $item->id) }}"> تعديل </a>
 
                       <!-- Delete Form -->
-                      <form action="{{ route('admin.blog.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this blog?');" style="display: inline;">
+                      <form action="{{ route('admin.admins.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this admins?');" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">

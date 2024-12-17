@@ -23,12 +23,12 @@
     </div>
     <div class="col-auto">
       <div class="d-flex align-items-center gap-2 justify-content-lg-end">
-        <a href="{{ route('gallery.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
+        <a href="{{ route('admin.gallery.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
       </div>
     </div>
     <!--end breadcrumb-->
     <form
-      action="{{ isset($gallery) ? route('gallery.update', $gallery->id) : route('gallery.store') }}"
+      action="{{ isset($gallery) ? route('admin.gallery.update', $gallery->id) : route('admin.gallery.store') }}"
       method="POST"
       enctype="multipart/form-data">
       @csrf

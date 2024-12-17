@@ -3,9 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 
 class RoleMiddleware
 {
@@ -15,8 +14,9 @@ class RoleMiddleware
             return redirect('/login');
         }
 
-        if (!Auth::user()->roles()->whereIn('name', $roles)->exists()) {
-            abort(403, 'Unauthorized'); 
+        // Check if the user has the 'admin' role
+        if (Auth::user()->role !== 'admin') {
+            return redirect('/home');
         }
 
         return $next($request);

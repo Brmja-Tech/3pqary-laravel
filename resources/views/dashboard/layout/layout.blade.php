@@ -340,6 +340,18 @@
           </div>
           <a href="{{ route('admin.admin')}}"><i class="material-icons-outlined"></i>لوحة التحكم </a>
         </li>
+        <!-- <li>
+          <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="material-icons-outlined"></i>
+            </div>
+            <div class="menu-title">الصلاحيات</div>
+          </a>
+          <ul>
+            <li>
+              <a href="{{ route('admin.roles.index')}}"><i class="material-icons-outlined"></i>جميع الصلاحيات </a>
+            </li>
+          </ul>
+        </li> -->
         <li>
           <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="material-icons-outlined"></i>
@@ -436,7 +448,7 @@
             </li>
           </ul>
         </li>
-        <!-- <li>
+        <li>
           <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="material-icons-outlined"></i>
             </div>
@@ -447,7 +459,7 @@
               <a href="{{ route('admin.admins.index')}}"><i class="material-icons-outlined"></i>جميع مديرين </a>
             </li>
           </ul>
-        </li> -->
+        </li>
       </ul>
       <!--end navigation-->
     </div>

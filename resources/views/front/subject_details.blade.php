@@ -68,4 +68,65 @@
     </div>
 </section>
 
+@guest
+    <div id="login-popup" class="popup">
+            <div class="popup-content" >
+                <p>أنت بحاجة إلى تسجيل الدخول للوصول إلى هذا المحتوى.</p>
+                <button onclick="window.location.href='{{ route('user-login') }}'">تسجيل الدخول</button>
+            </div>
+    </div>
+@endguest
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const isAuthenticated = @json(Auth::check());
+
+        if (!isAuthenticated) {
+            const popup = document.getElementById('login-popup');
+            popup.style.display = 'block'; 
+        }
+    });
+</script>
+
+<style>
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin: auto;
+        text-align: center;
+        width: 400px;
+        height: 200px;
+        max-width: 90%;
+    }
+
+    .popup button {
+        padding: 10px 20px;
+        margin: auto;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .popup button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
 @endsection

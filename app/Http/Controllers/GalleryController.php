@@ -60,12 +60,12 @@ class GalleryController extends Controller
                 'video' => $videoPath,
             ]);
 
-            return redirect()->route('gallery.index')->with('success', 'Gallery item created successfully!');
+            return redirect()->route('admin.gallery.index')->with('success', 'Gallery item created successfully!');
         } catch (\Exception $e) {
 
             \Log::error('Gallery item creation failed: ' . $e->getMessage());
 
-            return redirect()->route('gallery.index')->with('error', 'Failed to upload the gallery item. Please try again.');
+            return redirect()->route('admin.gallery.index')->with('error', 'Failed to upload the gallery item. Please try again.');
         }
     }
 
@@ -110,7 +110,7 @@ class GalleryController extends Controller
             ]);
         }
 
-        return redirect()->route('gallery.index')->with('success', 'Gallery item updated successfully!');
+        return redirect()->route('admin.gallery.index')->with('success', 'Gallery item updated successfully!');
     }
 
 
@@ -120,6 +120,6 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         $gallery->delete();
-        return redirect()->route('gallery.index')->with('success', 'Gallery item deleted successfully!');
+        return redirect()->route('admin.gallery.index')->with('success', 'Gallery item deleted successfully!');
     }
 }

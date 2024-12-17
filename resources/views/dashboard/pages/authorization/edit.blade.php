@@ -1,42 +1,28 @@
 @extends('dashboard.layout.layout')
-
-@section('title', __('Edit Role'))
-
-@section('style')
-<style>
-    .form-check-group {
-        background-color: #f8f9fa; /* لون خلفية */
-        border: 1px solid #ddd; /* حدود */
-        border-radius: 5px; /* تقريب الزوايا */
-        padding: 10px; /* تبطين */
-        margin-bottom: 15px; /* هامش أسفل */
-    }
-    .form-check-input-group {
-        accent-color: #007bff; /* لون الاختيار */
-    }
-    .form-check-label-group {
-        font-weight: bold; /* الخط الغامق */
-        color: #333; /* لون الخط */
-    }
-</style>
-@endsection
-
+@section('title', ('Roles'))
 @section('content')
-<div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">@trans('Dashboard') </a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.roles.index') }}">@trans('Roles')</a></li>
-                    <li class="breadcrumb-item active">@trans('Edit Roles') </li>
-                </ol>
+<!--start main wrapper-->
+<main class="main-wrapper">
+    <div class="main-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">لوحة التحكم</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">تعيل الصلاحيات</li>
+                    </ol>
+                </nav>
             </div>
-            <h4 class="page-title">@trans('Roles')</h4>
-        </div>
-    </div>
-</div>
 
+        </div>
+        <div class="col-auto">
+            <div class="d-flex align-items-center gap-2 justify-content-lg-end">
+                <a href="{{ route('admin.roles.index') }}" class="btn btn-primary mb-3 px-4">الرجوع</a>
+            </div>
+        </div>
 <div class="row">
     <div class="col-12">
         <div class="card">

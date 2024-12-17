@@ -46,7 +46,7 @@ class BlogController extends Controller
         }
 
         $model->save();
-        return redirect()->route('blog.index')->with('success', 'Data stored successfully');
+        return redirect()->route('admin.blog.index')->with('success', 'Data stored successfully');
     }
 
     /**
@@ -86,7 +86,7 @@ class BlogController extends Controller
 
         $model->save();
 
-        return redirect()->route('blog.index')->with('success', 'Data updated successfully');
+        return redirect()->route('admin.blog.index')->with('success', 'Data updated successfully');
     }
 
     public function destroy($id)

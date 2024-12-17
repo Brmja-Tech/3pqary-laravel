@@ -20,27 +20,26 @@ use App\Http\Controllers\Dashboardd\{HomeController, AuthController};
 require __DIR__ . '/auth.php';
 
 /////////////////////////////////// dashboard routes ////////////////////////////////////
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::middleware(['auth'])->group(function () {
-        Route::resource('contact-us', ContactUsController::class)->names('contact-us');
-        Route::resource('settings', SettingController::class)->names('settings');
-        Route::resource('gallery', GalleryController::class)->names('gallery');
-        Route::resource('grade', GradeController::class)->names('grade');
-        Route::resource('claint_rates', ClaintRateController::class)->names('claint_rates');
-        Route::resource('blog', BlogController::class)->names('blog');
-        Route::resource('subject', SubjectController::class)->names('subject');
-        Route::resource('roles', RoleController::class);
-        Route::resource('courses', CourseController::class)->names('courses');
-        Route::resource('teachers', TeacherController::class)->names('teachers');
-        Route::resource('admins', AdminUserController::class)->names('admins');
-        Route::get('/admin', function () {
-            return view('dashboard.pages.index');
-        })->name('admin');
-        Route::get('/dashboard', function () {
-            return view('dashboard.pages.index');
-        })->name('dashboard');
-    });
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'roleMiddleware']], function () {
+    Route::resource('contact-us', ContactUsController::class)->names('contact-us');
+    Route::resource('settings', SettingController::class)->names('settings');
+    Route::resource('gallery', GalleryController::class)->names('gallery');
+    Route::resource('grade', GradeController::class)->names('grade');
+    Route::resource('claint_rates', ClaintRateController::class)->names('claint_rates');
+    Route::resource('blog', BlogController::class)->names('blog');
+    Route::resource('subject', SubjectController::class)->names('subject');
+    Route::resource('roles', RoleController::class)->names('roles');
+    Route::resource('courses', CourseController::class)->names('courses');
+    Route::resource('teachers', TeacherController::class)->names('teachers');
+    Route::resource('admins', AdminUserController::class)->names('admins');
+    Route::get('/admin', function () {
+        return view('dashboard.pages.index');
+    })->name('admin');
+    Route::get('/dashboard', function () {
+        return view('dashboard.pages.index');
+    })->name('dashboard');
 });
+
 
 /////////////////////////////////// front routes ////////////////////////////////////
 

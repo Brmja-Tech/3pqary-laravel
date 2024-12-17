@@ -16,15 +16,14 @@ class RoleController extends Controller
 
     public function index(Request $request)
     {
-        // جلب جميع الأدوار مع الصلاحيات المرتبطة بها
         $roles = Role::with('permissions')->paginate(10);
         return view('dashboard.pages.authorization.index', compact('roles'));
     }
 
+    // Show form for creating a new role
     public function create()
     {
         $permissions = CustomPermission::all()->groupBy('group_name');
-
         return view('dashboard.pages.authorization.create', compact('permissions'));
     }
 
@@ -37,7 +36,7 @@ class RoleController extends Controller
             'permissions.required' => __('Please select at least one permission.'),
         ]);
 
-        // Create the role
+        // Create the new role
         $role = Role::create([
             'name' => $request->name,
             'guard_name' => 'admin', 
@@ -55,7 +54,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::with('permissions')->findOrFail($id);
+
         $permissions = CustomPermission::all()->groupBy('group_name');
+
         return view('dashboard.pages.authorization.edit', compact('role', 'permissions'));
     }
 
@@ -64,14 +65,14 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
 
         $data = $request->validate([
-            'name' => 'required|string|max:255|unique:roles,name,' . $role->id, 
+            'name' => 'required|string|max:255|unique:roles,name,' . $role->id,
             'permissions' => 'required|array', 
             'permissions.*' => 'exists:permissions,id', 
         ], [
             'permissions.required' => __('Please select at least one permission.'), 
         ]);
 
-        // تحديث الدور
+        // Update the role's name
         $role->update([
             'name' => $data['name'],
             'guard_name' => 'admin', 
@@ -95,10 +96,13 @@ class RoleController extends Controller
             'permissions' => $permissions,
         ]);
     }
+
     public function destroy($id)
     {
         $role = Role::findOrFail($id);
+
         $role->delete();
-        return redirect()->route('admin.roles.index')->with('success', 'Permission Deleted Successfully');
+
+        return redirect()->route('admin.roles.index')->with('success', 'Role deleted successfully.');
     }
 }

@@ -29,7 +29,7 @@ class SettingController extends Controller
         ]);
 
         Setting::create($request->all());
-        return redirect()->route('settings.index')->with('success', 'Setting created successfully!');
+        return redirect()->route('admin.settings.index')->with('success', 'Setting created successfully!');
     }
 
     public function edit(Setting $setting)
@@ -49,12 +49,12 @@ class SettingController extends Controller
         ]);
 
         $setting->update($request->all());
-        return redirect()->route('settings.index')->with('success', 'Setting updated successfully!');
+        return redirect()->route('admin.settings.index')->with('success', 'Setting updated successfully!');
     }
 
     public function destroy(Setting $setting)
     {
         $setting->delete();
-        return redirect()->route('settings.index')->with('success', 'Setting deleted successfully!');
+        return redirect()->route('admin.settings.index')->with('success', 'Setting deleted successfully!');
     }
 }
