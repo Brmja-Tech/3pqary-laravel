@@ -128,8 +128,8 @@
                                 @foreach($settings as $item)
                                                                 <li> <a href="mailto:{{ $item->email ?? ''}}">{{ $item->email ?? ''}}</a>:الايميل<i
                                                                         class="fas fa-envelope"></i></li>
-                                                                <li> <a href="tel:{{ $item->phone ?? ''}}">{{ $item->phone ?? ''}}</a> </i>:الهاتف<i
-                                                                        class="fas fa-mobile-alt"></i></li>
+                                                                <!-- <li> <a href="tel:{{ $item->phone ?? ''}}">{{ $item->phone ?? ''}}</a> </i>:الهاتف<i
+                                                                        class="fas fa-mobile-alt"></i></li> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -242,9 +242,9 @@
                                                             <div>
                                                                 <p class="footer-info"><a href="{{ $item->email ?? ''}}">{{ $item->email ?? ''}}</a>
                                                                     :الايميل<i class="fal fa-envelope"></i></p>
-                                                                <p class="footer-info"><a href="tel:{{ $item->phone ?? ''}}">{{ $item->phone ?? ''}}</a>
+                                                                <!-- <p class="footer-info"><a href="tel:{{ $item->phone ?? ''}}">{{ $item->phone ?? ''}}</a>
                                                                     :للتواصل
-                                                                    <i class="fas fa-mobile-alt"></i>
+                                                                    <i class="fas fa-mobile-alt"></i> -->
                                                                 </p>
 
                                                             </div>
