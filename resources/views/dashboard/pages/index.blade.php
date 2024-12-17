@@ -12,17 +12,16 @@
         width: 100%;
     }
 
-    .breadcrumb-title {
+    .title {
         text-align: center;
         font-size: 1.5rem;
-        /* Adjust as needed */
     }
 </style>
 
 <main class="main-wrapper">
     <div class="main-content">
         <!--breadcrumb-->
-        <div class="breadcrumb-title pe-3 text-center"> لوحة تحكم منصة العبقري الصغير</div>
+        <div class="title pe-3 text-center"> لوحة تحكم منصة العبقري الصغير</div>
     </div>
 </main>
 

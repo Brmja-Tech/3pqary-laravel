@@ -129,7 +129,7 @@
                                                                 <li> <a href="mailto:{{ $item->email ?? ''}}">{{ $item->email ?? ''}}</a>:الايميل<i
                                                                         class="fas fa-envelope"></i></li>
                                                                 <!-- <li> <a href="tel:{{ $item->phone ?? ''}}">{{ $item->phone ?? ''}}</a> </i>:الهاتف<i
-                                                                        class="fas fa-mobile-alt"></i></li> -->
+                                                                                                                                                                                                        class="fas fa-mobile-alt"></i></li> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -142,10 +142,11 @@
                                                     <div class="row gx-3 align-items-center justify-content-between">
                                                         <div class="col text-end text-lg-center">
                                                             <nav class="main-menu menu-style1 d-none d-lg-block">
-                                                                <ul style="
-                                                                display: flex;
-                                                                flex-direction: row-reverse;
-                                                                justify-content: center;">
+                                                                <ul
+                                                                    style="
+                                                                                                                                                                                                display: flex;
+                                                                                                                                                                                                flex-direction: row-reverse;
+                                                                                                                                                                                                justify-content: center;">
                                                                     <li>
                                                                         <a href="{{ route('home')}}">الرئيسية</a>
                                                                     </li>
@@ -217,20 +218,20 @@
                                                                     <div class="gallery-thumb">
                                                                         <img src="{{ asset('assets/img/school/gal-2-1.jpg')}}" alt="Gallery Image"
                                                                             class="w-100">
-                                                                        <a href="assets/img/widget/gal-2-1.jpg" class="popup-image gal-btn"><i
-                                                                                class="fal fa-plus"></i></a>
+                                                                        <a href="{{ asset('assets/img/school/gal-2-1.jpg')}}"
+                                                                            class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
                                                                     </div>
                                                                     <div class="gallery-thumb">
                                                                         <img src="{{ asset('assets/img/school/gal-2-2.jpg')}}" alt="Gallery Image"
                                                                             class="w-100">
-                                                                        <a href="assets/img/widget/gal-2-2.jpg" class="popup-image gal-btn"><i
-                                                                                class="fal fa-plus"></i></a>
+                                                                        <a href="{{ asset('assets/img/school/gal-2-2.jpg')}}"
+                                                                            class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
                                                                     </div>
                                                                     <div class="gallery-thumb">
                                                                         <img src="{{ asset('assets/img/school/gal-2-3.jpg')}}" alt="Gallery Image"
                                                                             class="w-100">
-                                                                        <a href="assets/img/widget/gal-2-3.jpg" class="popup-image gal-btn"><i
-                                                                                class="fal fa-plus"></i></a>
+                                                                        <a href="{{ asset('assets/img/school/gal-2-3.jpg')}}"
+                                                                            class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -243,8 +244,8 @@
                                                                 <p class="footer-info"><a href="{{ $item->email ?? ''}}">{{ $item->email ?? ''}}</a>
                                                                     :الايميل<i class="fal fa-envelope"></i></p>
                                                                 <!-- <p class="footer-info"><a href="tel:{{ $item->phone ?? ''}}">{{ $item->phone ?? ''}}</a>
-                                                                    :للتواصل
-                                                                    <i class="fas fa-mobile-alt"></i> -->
+                                                                                                                                                                                                    :للتواصل
+                                                                                                                                                                                                    <i class="fas fa-mobile-alt"></i> -->
                                                                 </p>
 
                                                             </div>
@@ -253,10 +254,11 @@
                                                     <div class="col-md-6 col-lg-4">
                                                         <div class="widget widget_nav_menu  footer-widget">
                                                             <h3 class="widget_title">الصفحات</h3>
-                                                            <div class="menu-all-pages-container footer-menu" style="
-                                                            text-align: right;
-                                                            display: flex;
-                                                            justify-content: end;">
+                                                            <div class="menu-all-pages-container footer-menu"
+                                                                style="
+                                                                                                                                                                                            text-align: right;
+                                                                                                                                                                                            display: flex;
+                                                                                                                                                                                            justify-content: end;">
                                                                 <ul class="menu">
                                                                     <li><a href="{{ route('home')}}">الرئيسية</a></li>
                                                                     <li><a href="{{ route('about-us')}}">نبذة عنا</a></li>
@@ -264,6 +266,14 @@
                                                                     <li><a href="{{ route('blogs')}}">الاخبار</a></li>
                                                                     <li><a href="{{ route('gallary')}}">معرض الصور</a></li>
                                                                     <li><a href="{{ route('contact-us')}}">تواصل معانا</a></li>
+                                                                    @auth
+                                                                        @if(auth()->user()->role === 'admin')
+                                                                            <li>
+                                                                                <a href="{{ route('admin.dashboard') }}">لوحة التحكم</a>
+                                                                            </li>
+                                                                        @endif
+                                                                    @endauth
+
                                                                 </ul>
                                                             </div>
 

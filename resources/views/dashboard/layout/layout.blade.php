@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>El-3abkary | @yield('title')</title>
   <!--favicon-->
-  <link rel="icon" href="{{ asset('dashboard/assets/images/favicon-32x32.png') }}" type="image/png">
+  <link rel="icon" href="{{ asset('assets/img/logo/SVG/AlAbkariAlSaghier_Icon.svg')}}" type="image/png">
   <!-- loader-->
   <link href="{{ asset('dashboard/assets/css/pace.min.css') }}" rel="stylesheet">
   <script src="{{ asset('dashboard/assets/js/pace.min.js') }}"></script>
@@ -280,13 +280,13 @@
 
         <li class="nav-item dropdown">
           <a href="javascrpt:;" class="dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
-            <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle p-1 border"
+            <img src="{{ asset('assets/img/logo/SVG/AlAbkariAlSaghier_Icon.svg')}}" class="rounded-circle p-1 border"
               width="45" height="45" alt="">
           </a>
           <div class="dropdown-menu dropdown-user dropdown-menu-end shadow">
             <a class="dropdown-item  gap-2 py-2" href="javascript:;">
               <div class="text-center">
-                <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle p-1 shadow mb-3"
+                <img src="{{ asset('assets/img/logo/SVG/AlAbkariAlSaghier_Icon.svg')}}" class="rounded-circle p-1 shadow mb-3"
                   width="90" height="90" alt="">
                 <h5 class="user-name mb-0 fw-bold">مرحباً , {{ Auth::check() ? Auth::user()->name : 'admin' }} </h5>
               </div>
