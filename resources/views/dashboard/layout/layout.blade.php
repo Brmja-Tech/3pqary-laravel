@@ -288,7 +288,7 @@
               <div class="text-center">
                 <img src="{{ asset('dashboard/assets/images/avatars/01.png') }}" class="rounded-circle p-1 shadow mb-3"
                   width="90" height="90" alt="">
-                <h5 class="user-name mb-0 fw-bold">مرحباً , Admin</h5>
+                <h5 class="user-name mb-0 fw-bold">مرحباً , {{ Auth::check() ? Auth::user()->name : 'admin' }} </h5>
               </div>
             </a>
             <hr class="dropdown-divider">
@@ -372,7 +372,8 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('admin.courses.index')}}"><i class="material-icons-outlined"></i>جميع المواد الدراسية </a>
+              <a href="{{ route('admin.courses.index')}}"><i class="material-icons-outlined"></i>جميع المواد الدراسية
+              </a>
             </li>
           </ul>
         </li>
@@ -432,7 +433,8 @@
           </a>
           <ul>
             <li>
-              <a href="{{ route('admin.claint_rates.index')}}"><i class="material-icons-outlined"></i> جميع أرآء العملاء </a>
+              <a href="{{ route('admin.claint_rates.index')}}"><i class="material-icons-outlined"></i> جميع أرآء العملاء
+              </a>
             </li>
           </ul>
         </li>
